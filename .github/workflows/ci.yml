@@ -1,0 +1,23 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      GEMINI_DISABLE_LIVE: "1"
+      INDUSTRIAL_AGENT_OFFLINE_MODE: "true"
+      INDUSTRIAL_AGENT_ALLOW_LOCAL_SANDBOX: "true"
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install --upgrade pip
+      - run: python -m pip install -e . pytest
+      - run: python -m pytest -q -p no:cacheprovider
+

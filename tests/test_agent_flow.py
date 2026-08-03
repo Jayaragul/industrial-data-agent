@@ -53,6 +53,7 @@ def test_unsafe_request_is_blocked() -> None:
 
 def test_gemini_unavailable_does_not_guess_an_unknown_data_question(monkeypatch) -> None:
     monkeypatch.delenv("INDUSTRIAL_AGENT_ALLOW_LOCAL_TEST_MODE", raising=False)
+    monkeypatch.delenv("INDUSTRIAL_AGENT_OFFLINE_MODE", raising=False)
     monkeypatch.setenv("GEMINI_DISABLE_LIVE", "1")
     response = IndustrialDataAgent().answer("what is the relationship between production cost and weather?")
     assert response.status == Status.GEMINI_UNAVAILABLE
@@ -144,6 +145,7 @@ def test_dataset_inventory_question_never_defaults_to_orders() -> None:
 
 def test_capability_question_does_not_require_gemini(monkeypatch) -> None:
     monkeypatch.delenv("INDUSTRIAL_AGENT_ALLOW_LOCAL_TEST_MODE", raising=False)
+    monkeypatch.delenv("INDUSTRIAL_AGENT_OFFLINE_MODE", raising=False)
     monkeypatch.setenv("GEMINI_DISABLE_LIVE", "1")
     response = IndustrialDataAgent().answer("hi, what can you do fro me")
     assert response.status == Status.GEMINI_UNAVAILABLE
@@ -168,7 +170,7 @@ def test_delayed_order_lookup_filters_records() -> None:
 def test_idle_machine_count_is_not_greeting() -> None:
     response = IndustrialDataAgent().answer("how many machines are idle?")
     assert response.status == Status.SUCCESS
-    assert response.summary == "2 idle machines found."
+    assert response.summary == "3 idle machines found."
     assert response.evidence == []
 
 

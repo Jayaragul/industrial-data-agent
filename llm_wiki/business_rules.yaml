@@ -1,0 +1,5 @@
+rules:
+  - name: order_risk_rule
+    definition: An incomplete order is at risk when usable inventory is below required material quantity, no compatible available machine exists, status is DELAYED, or forecast completion is after due_date.
+  - name: source_data_read_only
+    definition: Source CSV files in data/input must never be modified by the agent or generated code.

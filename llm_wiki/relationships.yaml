@@ -1,0 +1,11 @@
+relationships:
+  - from: orders.required_machine_type
+    to: machines.machine_type
+    join_type: semantic
+  - from: orders.assigned_machine_ids
+    to: machines.machine_id
+    join_type: list
+  - from: orders.required_material_id
+    to: inventory.material_id
+    join_type: many_to_one
+join_policy: The agent may join datasets only through relationships listed here.

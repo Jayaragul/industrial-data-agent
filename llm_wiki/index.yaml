@@ -1,0 +1,12 @@
+datasets:
+  - name: orders
+    path: data/input/orders.csv
+    purpose: Production order demand, progress, due dates, required machine type, and material needs.
+  - name: machines
+    path: data/input/machines.csv
+    purpose: Machine availability, type, capacity, efficiency, and health.
+  - name: inventory
+    path: data/input/inventory.csv
+    purpose: Material availability, reservations, reorder levels, and freshness.
+primary_knowledge_source: true
+data_freshness: Sample data dated 2026-07-25.

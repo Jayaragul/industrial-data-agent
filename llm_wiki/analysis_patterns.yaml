@@ -1,0 +1,13 @@
+patterns:
+  - name: order_risk_analysis
+    datasets: [orders, machines, inventory]
+    steps:
+      - Filter incomplete orders.
+      - Calculate remaining quantity and usable inventory.
+      - Check compatible machine availability.
+      - Classify risk reasons and cite order IDs.
+  - name: delayed_orders
+    datasets: [orders]
+    steps:
+      - Filter orders where status is DELAYED.
+      - Return order IDs, due dates, and priority.

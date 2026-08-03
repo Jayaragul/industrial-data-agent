@@ -1,0 +1,3 @@
+templates:
+  - name: standard_pdf_report
+    sections: [Title, Request ID, Generated timestamp, Executive summary, Analysis steps, Key metrics, Findings, Detailed table, Recommendations, Evidence, Data sources, Limitations, Page numbers]

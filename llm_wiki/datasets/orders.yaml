@@ -1,0 +1,33 @@
+name: orders
+file_location: data/input/orders.csv
+primary_key: order_id
+business_purpose: Tracks production orders and requirements.
+columns:
+  - name: order_id
+    type: string
+    description: Unique order identifier.
+  - name: product
+    type: string
+  - name: order_quantity
+    type: number
+  - name: completed_quantity
+    type: number
+  - name: status
+    type: enum
+    allowed_values: [PENDING, READY, ACTIVE, ON_HOLD, DELAYED, COMPLETE, CANCELLED]
+  - name: due_date
+    type: date
+  - name: required_machine_type
+    type: string
+  - name: assigned_machine_ids
+    type: string
+  - name: required_material_id
+    type: string
+  - name: required_material_quantity
+    type: number
+  - name: priority
+    type: enum
+    allowed_values: [LOW, MEDIUM, HIGH]
+synonyms:
+  available orders: open orders
+  delayed orders: late orders

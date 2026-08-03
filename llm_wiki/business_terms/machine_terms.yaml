@@ -1,0 +1,5 @@
+terms:
+  - term: idle machine
+    definition: A machine whose status is IDLE and can be considered available for assignment.
+  - term: compatible machine
+    definition: A machine whose machine_type equals orders.required_machine_type.

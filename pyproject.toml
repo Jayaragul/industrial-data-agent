@@ -16,6 +16,19 @@ dependencies = [
   "openpyxl>=3.1",
 ]
 
+[project.scripts]
+industrial-data-agent = "bot:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = ["bot", "demo"]
+
+[tool.setuptools.packages.find]
+include = ["agent*", "data*", "gemini*", "harness*", "knowledge*", "sandbox*", "tools*"]
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["."]

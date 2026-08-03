@@ -12,6 +12,41 @@ except Exception:  # pragma: no cover
     Panel = None
 
 
+def print_help(console=None) -> None:
+    lines = [
+        "/help     Show supported commands.",
+        "/examples Show sample factory questions.",
+        "/status   Show Gemini, mode, and active dataset status.",
+        "/data     Show uploaded datasets.",
+        "/debug on|off  Toggle safe diagnostics.",
+        "/wiki lint     Check factory wiki completeness.",
+        "exit      Quit the agent.",
+    ]
+    (console.print if console else print)("\n".join(lines))
+
+
+def print_examples(console=None) -> None:
+    lines = [
+        "How many high priority orders are there?",
+        "What orders are delayed?",
+        "Which machines are running?",
+        "What materials are below reorder level?",
+        "Create a CSV and PDF report for delayed orders.",
+    ]
+    (console.print if console else print)("\n".join(f"- {line}" for line in lines))
+
+
+def print_status(agent, ingestion, console=None) -> None:
+    active = ingestion.active_sources()
+    lines = [
+        f"Mode: {'Live Gemini' if agent.gemini.connected else 'Offline/unavailable'}",
+        f"Model: {agent.gemini.model or 'not configured'}",
+        f"Datasets: {', '.join(active) if active else 'bundled demonstration data'}",
+        f"Diagnostic log: {agent.catalog.root.parent / 'runtime' / 'logs' / 'gemini.log'}",
+    ]
+    (console.print if console else print)("\n".join(lines))
+
+
 def main() -> None:
     agent = IndustrialDataAgent()
     ingestion = DataIngestionService(agent.catalog)
@@ -24,6 +59,15 @@ def main() -> None:
             question = console.input("[bold cyan]You > [/bold cyan]").strip()
             if question.lower() in {"exit", "quit"}:
                 break
+            if question.lower() == "/help":
+                print_help(console)
+                continue
+            if question.lower() == "/examples":
+                print_examples(console)
+                continue
+            if question.lower() == "/status":
+                print_status(agent, ingestion, console)
+                continue
             if question.lower() == "/debug on":
                 agent.debug_enabled = True
                 console.print("Debug mode enabled.")
@@ -59,6 +103,15 @@ def main() -> None:
             question = input("You > ").strip()
             if question.lower() in {"exit", "quit"}:
                 break
+            if question.lower() == "/help":
+                print_help()
+                continue
+            if question.lower() == "/examples":
+                print_examples()
+                continue
+            if question.lower() == "/status":
+                print_status(agent, ingestion)
+                continue
             if question.lower() == "/debug on":
                 agent.debug_enabled = True
                 print("Debug mode enabled.")

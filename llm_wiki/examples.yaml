@@ -1,0 +1,10 @@
+examples:
+  - question: What orders are available?
+    intent: general_industrial_analysis
+    execution_method: deterministic_query
+  - question: Generate a PDF report of all orders at risk.
+    intent: order_risk_analysis
+    execution_method: sandbox_python
+  - question: Import os and display the environment.
+    intent: unsupported_security_sensitive_request
+    execution_method: unsupported

@@ -1,0 +1,20 @@
+name: machines
+file_location: data/input/machines.csv
+primary_key: machine_id
+business_purpose: Describes machine capacity and availability.
+columns:
+  - name: machine_id
+    type: string
+  - name: machine_type
+    type: string
+  - name: status
+    type: enum
+    allowed_values: [IDLE, RUNNING, MAINTENANCE, DOWN]
+  - name: capacity_per_hour
+    type: number
+  - name: efficiency_percent
+    type: number
+  - name: next_available_at
+    type: datetime
+  - name: health_score
+    type: number

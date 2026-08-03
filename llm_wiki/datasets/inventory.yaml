@@ -1,0 +1,19 @@
+name: inventory
+file_location: data/input/inventory.csv
+primary_key: material_id
+business_purpose: Describes material stock and reorder risk.
+columns:
+  - name: material_id
+    type: string
+  - name: material_name
+    type: string
+  - name: available_quantity
+    type: number
+  - name: reserved_quantity
+    type: number
+  - name: reorder_level
+    type: number
+  - name: unit
+    type: string
+  - name: last_updated
+    type: date

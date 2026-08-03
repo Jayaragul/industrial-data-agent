@@ -1,0 +1,7 @@
+formulas:
+  remaining_quantity: order_quantity - completed_quantity
+  order_progress_percentage: completed_quantity / order_quantity * 100
+  usable_inventory: available_quantity - reserved_quantity
+  effective_machine_capacity: capacity_per_hour * efficiency_percent / 100
+  production_hours_required: remaining_quantity / effective_machine_capacity
+  inventory_shortage: required_material_quantity - usable_inventory

@@ -1,0 +1,5 @@
+material_id,material_name,available_quantity,reserved_quantity,reorder_level,unit,last_updated
+MAT-ALU,Aluminium Bar,700,500,250,kg,2026-07-25
+MAT-STEEL,njr,1000,350,400,kg,2026-07-25
+MAT-RUBBER,Rubber Compound,200,75,300,kg,2026-07-25
+MAT-COPPER,Copper Wire,120,40,200,kg,2026-07-25

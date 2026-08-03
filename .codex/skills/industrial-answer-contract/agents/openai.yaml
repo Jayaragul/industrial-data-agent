@@ -1,0 +1,4 @@
+interface:
+  display_name: "Industrial Answer Contract"
+  short_description: "Return concise answers backed by validated factory evidence."
+  default_prompt: "Apply the industrial answer contract to this request."

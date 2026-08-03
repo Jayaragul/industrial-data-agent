@@ -1,0 +1,12 @@
+terms:
+  - term: available orders
+    definition: Orders that remain open for planning or production.
+    filter:
+      field: status
+      operator: in
+      values: [PENDING, READY, ACTIVE, ON_HOLD]
+  - term: production-ready orders
+    definition: Open orders with sufficient required inventory and at least one compatible machine available before the deadline.
+    required_datasets: [orders, inventory, machines]
+  - term: at-risk order
+    definition: An incomplete order with inventory shortage, insufficient machine capacity, unavailable equipment, or expected completion after due date.

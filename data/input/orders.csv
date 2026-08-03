@@ -1,0 +1,6 @@
+order_id,product,order_quantity,completed_quantity,status,due_date,required_machine_type,assigned_machine_ids,required_material_id,required_material_quantity,priority
+ORD-1001,Valve Body,1000,250,ACTIVE,2026-07-30,CNC,M-12,MAT-ALU,600,HIGH
+ORD-1002,Pump Housing,500,0,READY,2026-08-02,CNC,,MAT-STEEL,420,MEDIUM
+ORD-1003,Seal Kit,2000,1800,DELAYED,2026-07-24,ASSEMBLY,M-31,MAT-RUBBER,260,HIGH
+ORD-1004,Bracket,750,100,ON_HOLD,2026-07-28,PRESS,,MAT-STEEL,800,LOW
+ORD-1024,Drive Shaft,300,50,PENDING,2026-07-29,LATHE,,MAT-ALU,280,HIGH
